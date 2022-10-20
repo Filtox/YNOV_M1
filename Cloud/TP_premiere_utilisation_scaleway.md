@@ -31,7 +31,8 @@ Ajoutez 5 ou 6 user dans la table associée. Faire une sauvegarde de la base de 
 
 Le **compte rendu** de l’exercice doit être **déposé sur moodle par chacun des membres du groupe** au format **Markdown le 26 octobre 2022 au plus tard.**
 
-![z link](https://imgur.com/gallery/NqGyWWY)
+![img](https://imgur.com/a/NqGyWWY.png)
+[Imgur](https://imgur.com/7U3h3k6)
 
 
 type : mysql 
