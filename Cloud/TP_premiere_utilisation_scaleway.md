@@ -18,7 +18,7 @@ Utiliser les fonctionnalités du Cloud pour mettre en service, dimensionner et d
 Utiliser les services et les outils permettant d'automatiser la mise en service et le déploiement de l’infrastructure
 <br>
 Optimiser l’efficacité d’une infrastructure Cloud afin d’améliorer les performances, diminuer les coûts et éviter le gaspillage
-<br>
+<br><br>
 
 ## Cas n°1:
 Vous installez une base de données à l’aide du service correspondant sur Scaleway.
@@ -33,7 +33,7 @@ Le **compte rendu** de l’exercice doit être **déposé sur moodle par chacun 
 
 <br><br>
 
-## Configuration machine virtuelle :
+## Configuration instance base de données :
 
 <br>
 
@@ -47,13 +47,23 @@ Le **compte rendu** de l’exercice doit être **déposé sur moodle par chacun 
 | Nom de l'instance | rdb-antoine-pierre |
 | Prix | 0,01384 € par heure |
 
-
 ### Résumé de la configuration :
 <br>
 
 ![img](https://i.imgur.com/7U3h3k6.png)
 
 <br>
+
+## Création instance serveur :
+
+```
+scw instance server create type=DEV1-S zone=nl-ams-1 image=ubuntu_jammy root-volume=l:20G name=scw-sleepy-lehmann ip=new project-id=77f6b02d-83f3-4ca6-9ee0-6a23ce1dcfa0
+```
+
+### Résumé de la configuration :
+<br>
+
+![img](https://i.imgur.com/TAiIA9D.png)
 
 ## Connexion à la base de données :
 <br>
@@ -104,12 +114,17 @@ On peut voir que les données sont bien insérés avec la commande :
 select * from user;
 ```
 ![img](https://i.imgur.com/quNKe31.png)
+<br>
+<br>
 
 ## Sauvegardes de la base :
+<br>
 
 ### Graphiquement :
-
+<br>
 Dans un premier temps, nous avons réaliser une sauvegarde via la console.
+<br>
+<br>
 
 ![img](https://i.imgur.com/zJLSU7b.png)
 
@@ -117,4 +132,73 @@ Dans un premier temps, nous avons réaliser une sauvegarde via la console.
 
 ![img](https://i.imgur.com/mSu20eQ.png)
 
+### Via le CLI :
+
+Dans un second temps, on va faire la même opération mais sous forme CLI.
+
+```
+scw rdb backup create instance-id=c2691882-afe5-46f3-8c60-113fe8fd8c82 database-name=rdb name=sauvegarde region=fr-par
+ID            446125eb-2b15-4967-8e4b-7a05472e87de
+InstanceID    c2691882-afe5-46f3-8c60-113fe8fd8c82
+DatabaseName  rdb
+Name          sauvarge
+Status        creating
+CreatedAt     now
+InstanceName  rdb-antoine-pierre
+Region        fr-par
+SameRegion    false
+```
+
 ## Restauration de la base :
+
+### Graphiquement :
+<br>
+
+![img](https://i.imgur.com/xIel69I.png)
+
+![img](https://i.imgur.com/beqR9Ph.png)
+
+<br>
+
+### Via CLI :
+<br>
+
+Etant donné que l'on ne connait pas l'ID de restauration, il faut lister les différentes restaurations :
+
+```
+scw rdb backup list
+ID                                    Name                                   Status  Instance ID                           Exported
+
+446125eb-2b15-4967-8e4b-7a05472e87de  sauvarge                               ready   c2691882-afe5-46f3-8c60-113fe8fd8c82  true
+```
+
+Et voici la commande de restauration :
+
+```
+scw rdb backup restore 446125eb-2b15-4967-8e4b-7a05472e87de instance-id=c2691882-afe5-46f3-8c60-113fe8fd8c82 region=fr-par
+ID                    446125eb-2b15-4967-8e4b-7a05472e87de
+InstanceID            c2691882-afe5-46f3-8c60-113fe8fd8c82
+DatabaseName          rdb
+Name                  sauvarge
+Status                restoring
+Size                  840 B
+CreatedAt             14 minutes ago
+UpdatedAt             14 minutes ago
+InstanceName          rdb-antoine-pierre
+DownloadURL           https://s3.nl-ams.scw.cloud/65940610-0e5e-4a98-9306-568aa4eb3673/c2691882-afe5-46f3-8c60-113fe8fd8c82/446125eb-2b15-4967-8e4b-7a05472e87de.sql.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&-Amz-Credential=SCWBTK7RYYS1750DS37K%2F20221020%2Fnl-ams%2Fs3%2Faws4_request&X-Amz-Date=20221020T131043Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=a51612ea02e1fb17289c1b39b4c54e5349ededcf38f52eaf42e5f5fd25961141
+DownloadURLExpiresAt  23 hours from now
+Region                fr-par
+SameRegion            false
+azachariades@GTD-TLS-LAP040:
+```
+<br>
+
+On peut vérifier que la suppression et la restauration à bien fonctionné :
+<br>
+Cette capture d'écran illustre la suppression des données de la table user, dans laquelle  était contenu les données utilisateur, puis l'affichage de cette même table.
+<br>
+Ensuite, on restaure la table via la console et le CLI et la table remplie réapparait.
+<br>
+<br>
+
+![img](https://i.imgur.com/4GshGOa.png)
