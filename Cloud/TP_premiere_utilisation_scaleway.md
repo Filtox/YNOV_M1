@@ -200,3 +200,13 @@ Ensuite, on restaure la table via la console et le CLI et la table remplie réap
 <br>
 
 ![img](https://i.imgur.com/4GshGOa.png)
+<br>
+<br>
+
+## Cas n°2 :
+
+Utilisation des FaaS pour faire des requêtes sur une base de données
+<br>
+En utilisant la base de données du cas n°1, vous effectuez une requête simple (type
+“SELECT * FROM user;”) à l’aide du service Serverless de Scaleway. Vous créez la fonction
+Serverless à l’aide du CLI Scaleway.
