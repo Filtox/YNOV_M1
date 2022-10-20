@@ -77,5 +77,5 @@
 | ------------- |:-------------:| -------:| -------:|
 | 3 instances à 2 processeurs virtuels, 4 Go de RAM, stockage 75 de Go : 202,63 $ | 3 instances à 2 processeurs virtuels, 4 Go de RAM, stockage 50 de Go : 291,74 $ | 3 instances à 2 processeurs virtuels, 4 Go de RAM, stockage 50 de Go : 162,58 $ | 3 instances à 2 processeurs virtuels, 4 Go de RAM, stockage 50 de Go : 124,665 $ |
 | 1 Load balancer avec 1 règle : 23,25 $ | 1 Load balancer : 33,12 $ | 1 Load balancer : 22,28 $ | 1 Load balancer : 10,416 $ |
-| 1 base de données Azure pour MySQL à 2 vCore et 10 Go de stockage : 63,21 $ | 1 base de données à 2 vCore et 10 Go de stockage : 69,30 $ |    1 base de données à 2 vCPU, 8 Go de RAM et 150 Go de stockage : 150,99 $ | 1 base de données à 2 vCPU et 10 GGo de stockage : 7,6 $ |
+| 1 base de données Azure pour MySQL à 2 vCore et 10 Go de stockage : 63,21 $ | 1 base de données à 2 vCore et 10 Go de stockage : 69,30 $ |    1 base de données à 2 vCPU, 8 Go de RAM et 150 Go de stockage : 150,99 $ | 1 base de données à 2 vCPU et 10 Go de stockage : 7,6 $ |
 | **Total : 289,09 $** | **Total : 394,16 $** |   **Total : 335,85 $** | **Total :** 142,681 $ |
