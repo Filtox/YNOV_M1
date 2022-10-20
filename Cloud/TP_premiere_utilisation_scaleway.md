@@ -88,12 +88,10 @@ mysql> create table user (nom VARCHAR(100), prénom VARCHAR(100), mail varchar(2
 On insère ensuite les données :
 
 ```
-mysql> insert into user (nom, prénom, mail) VALUES ('Zachariades', 'Antoine', 'pierre.michel@ynov.com
-');
+mysql> insert into user (nom, prénom, mail) VALUES ('Zachariades', 'Antoine', 'pierre.michel@ynov.com');
 Query OK, 1 row affected (0,17 sec)
 
-mysql> insert into user (nom, prénom, mail) VALUES ('marchal', 'frederic', 'frederic.marchall@ynov.co
-m');
+mysql> insert into user (nom, prénom, mail) VALUES ('marchal', 'frederic', 'frederic.marchall@ynov.com');
 Query OK, 1 row affected (0,09 sec)
 
 mysql> insert into user (nom, prénom, mail) VALUES ('banner', 'jerome', 'jerome.banner@ynov.com');
