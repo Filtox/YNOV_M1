@@ -210,3 +210,27 @@ Utilisation des FaaS pour faire des requêtes sur une base de données
 En utilisant la base de données du cas n°1, vous effectuez une requête simple (type
 “SELECT * FROM user;”) à l’aide du service Serverless de Scaleway. Vous créez la fonction
 Serverless à l’aide du CLI Scaleway.
+
+Dans un premier temps, on créer un namespace dans la partie "Serverless Functions" :
+
+![img](https://i.imgur.com/UG8vcYC.png)
+
+Dans ce namespace, on créer la fonction en Python (langage de préférence) :
+
+```py
+def handle(event, context):
+    return {
+        "body": {
+            "message": 'Hello, world',
+        },
+        "statusCode": 200,
+    }
+```
+
+Voici un résumé de la fonction :
+
+![img](https://i.imgur.com/8E1SvwY.png)
+
+Et ce que renvoie la fonction via l'URL du namespace :
+
+![img](https://i.imgur.com/9gzBO1W.png)
