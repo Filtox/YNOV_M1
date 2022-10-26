@@ -20,7 +20,7 @@ Utiliser les services et les outils permettant d'automatiser la mise en service 
 Optimiser l’efficacité d’une infrastructure Cloud afin d’améliorer les performances, diminuer les coûts et éviter le gaspillage
 <br><br>
 
-## Cas n°1:
+## Cas n°1: Une base de données managée et un serveur
 Vous installez une base de données à l’aide du service correspondant sur Scaleway.
 A l’aide d’une machine dans le cloud Scaleway (la moins chère possible), vous vous
 connectez à cette base de données, vous y créez une base avec une table (user: nom,
@@ -202,8 +202,9 @@ Ensuite, on restaure la table via la console et le CLI et la table remplie réap
 ![img](https://i.imgur.com/4GshGOa.png)
 <br>
 <br>
+<br>
 
-## Cas n°2 :
+## Cas n°2 : Utilisation des FaaS pour faire des requêtes sur une base de données
 
 Utilisation des FaaS pour faire des requêtes sur une base de données
 <br>
@@ -234,3 +235,27 @@ Voici un résumé de la fonction :
 Et ce que renvoie la fonction via l'URL du namespace :
 
 ![img](https://i.imgur.com/9gzBO1W.png)
+
+<br>
+<br>
+
+## Cas n°3 : Un équilibreur de charge qui distribue les requêtes sur 3 instances
+Vous configurez un Load Balancer qui répartit les requêtes entrantes sur 3 serveurs (de type DEV1_S) différents. Chacun des serveurs héberge un serveur web (nginx ou apache au choix) avec une page d’index, cette page doit afficher l’id de l’instance (en fonction de l’instance qui traite la requête). La création des instances est faite via le CLI Scaleway.
+
+On configure un load balancer pouvant héberger nos trois instances :
+
+![img](https://i.imgur.com/GeUZizH.png)
+
+Et voilà le résultat des 3 instances différentes :
+
+Instance 1 :
+
+![img](https://i.imgur.com/vDWal6w.png)
+
+Instance 2 :
+
+![img](https://i.imgur.com/AAerrE8.png)
+
+Instance 3 :
+
+![img](https://i.imgur.com/gUqDsDa.png)
