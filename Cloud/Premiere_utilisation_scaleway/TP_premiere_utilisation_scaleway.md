@@ -248,6 +248,14 @@ On configure un load balancer pouvant héberger nos trois instances :
 
 Et voilà le résultat des 3 instances différentes :
 
+```
+scw instance server create type=DEV1-S zone=fr-par-1 image=ubuntu_jammy root-volume=l:20G name=Instance1 ip=new project-id=77f6b02d-83f3-4ca6-9ee0-6a23ce1dcfa0
+
+scw instance server create type=DEV1-S zone=fr-par-1 image=ubuntu_jammy root-volume=l:20G name=Instance2 ip=new project-id=77f6b02d-83f3-4ca6-9ee0-6a23ce1dcfa0
+
+scw instance server create type=DEV1-S zone=fr-par-1 image=ubuntu_jammy root-volume=l:20G name=Instance3 ip=new project-id=77f6b02d-83f3-4ca6-9ee0-6a23ce1dcfa0
+```
+
 Instance 1 :
 
 ![img](https://i.imgur.com/vDWal6w.png)
